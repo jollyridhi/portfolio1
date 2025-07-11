@@ -22,7 +22,7 @@ export default function Contact() {
           {/* Contact Form */}
           <div className="bg-[#111] rounded-2xl p-8 shadow-lg border border-gray-800">
             <h2 className="text-2xl font-semibold mb-6 text-white">Send me a message</h2>
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="firstName" className="block text-sm font-medium text-gray-400 mb-2">
@@ -73,7 +73,7 @@ export default function Contact() {
                 />
               </div>
 
-              <Button className="w-full bg-orange-600 hover:bg-orange-700 transition-all duration-300">
+              <Button type="submit" className="w-full bg-orange-600 hover:bg-orange-700 transition-all duration-300">
                 Send Message
               </Button>
             </form>
@@ -104,7 +104,14 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-white">LinkedIn</h3>
-                  <p className="text-gray-300">https://www.linkedin.com/in/ridhi-jolly-68a926248/</p>
+                  <a
+                    href="https://www.linkedin.com/in/ridhi-jolly-68a926248/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-300 hover:underline break-all"
+                  >
+                    linkedin.com/in/ridhi-jolly-68a926248
+                  </a>
                   <p className="text-sm text-gray-500">DMs open — let’s chat</p>
                 </div>
               </div>

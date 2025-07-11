@@ -1,28 +1,31 @@
-import { Header } from "@/components/header"
+import { Header } from "@/components/header";
 
 export default function About() {
   return (
     <div className="min-h-screen bg-gray-900">
       <Header />
       <main className="max-w-4xl mx-auto px-4 py-32">
-        <div className="text-center space-y-8">
-          <h1 className="text-4xl font-bold text-white">About Banza</h1>
-          <div className="prose prose-lg mx-auto text-gray-300">
+        <div className="text-center space-y-10">
+          <h1 className="text-4xl font-bold text-white">About Me</h1>
+          <div className="prose prose-invert prose-lg text-gray-300 mx-auto space-y-6">
             <p>
-              Banza is revolutionizing how people interact with their personal data. We believe that your data is your
-              asset, and you should be the one benefiting from it.
+              Hi! I'm <strong>Ridhi Jolly</strong>, a Computer Science undergraduate at Bennett University (Class of 2026) with a strong foundation in full-stack development, backend engineering, QA automation, and data structures & algorithms (DSA).
             </p>
             <p>
-              Our platform allows you to safely share your data with trusted partners while maintaining complete control
-              over your privacy. In return, you earn real rewards from brands you love.
+              With over <strong>400 problems solved on LeetCode</strong> and 5-star ratings on HackerRank, I constantly challenge myself through coding contests and real-world problem solving. I’ve been part of multiple national-level hackathons including <strong>HackKachino</strong>, <strong>HackEye</strong>, and the <strong>Smart India Hackathon</strong>.
             </p>
             <p>
-              With access to over 3000+ brands and a secure, privacy-first approach, Banza is transforming the data
-              economy to work for you.
+              My project work includes <em>SwitchStream</em>, a scalable live streaming platform, and <em>FixItNow</em>, an end-to-end mobile repair service app featuring OTP login, Razorpay payments, and an admin dashboard. I also led QA automation for the <em>Enterprise Visitor Access Suite</em> using Selenium, Postman, TestNG, and Cucumber.
+            </p>
+            <p>
+              Recently, I co-authored a research paper on <strong>multi-model sentiment analysis</strong> using BERT, GNN, and LightGBM—achieving over <strong>94% accuracy</strong>. I’m passionate about writing efficient code, building real-world systems, and collaborating in high-energy environments.
+            </p>
+            <p>
+              Whether it's optimizing an algorithm or scaling a product, I thrive on building solutions that create real impact.
             </p>
           </div>
         </div>
       </main>
     </div>
-  )
+  );
 }

@@ -10,7 +10,7 @@ export function Footer() {
           <div>
             <div className="text-2xl font-bold text-orange-500">Ridhi Jolly</div>
             <p className="text-gray-400 mt-2 text-sm">
-              Full Stack Developer • MERN | Flutter | Firebase
+              Software Developer • Java | Node.js | React | PostgreSQL | Scalable Web Apps
             </p>
           </div>
 
@@ -76,11 +76,11 @@ export function Footer() {
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/blog" className="text-gray-400 hover:text-orange-400 transition">
                   Blog
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link href="/privacy-policy" className="text-gray-400 hover:text-orange-400 transition">
                   Privacy Policy

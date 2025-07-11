@@ -1,14 +1,17 @@
 "use client"
 
 import Link from "next/link"
+import { useRouter, usePathname } from "next/navigation"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const { scrollY } = useScroll()
   const headerOpacity = useTransform(scrollY, [0, 100], [0.95, 1])
   const headerBlur = useTransform(scrollY, [0, 100], [0, 10])
+  const router = useRouter()
+  const pathname = usePathname()
 
   useEffect(() => {
     const unsubscribe = scrollY.onChange((latest) => {
@@ -16,6 +19,19 @@ export function Header() {
     })
     return unsubscribe
   }, [scrollY])
+
+  const handleProjectsClick = () => {
+    if (pathname === "/") {
+      const section = document.getElementById("projects")
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" })
+      } else {
+        console.warn("❌ Projects section NOT found in DOM.")
+      }
+    } else {
+      router.push("/#projects")
+    }
+  }
 
   return (
     <motion.header
@@ -48,49 +64,75 @@ export function Header() {
             </div>
           </motion.div>
 
-          {/* Nav Items */}
-          {[
-            { name: "Work", href: "/" },
-            { name: "Projects", href: "/#projects" },
-            { name: "Resume", href: "/Ridhi_Jolly_Resume.pdf", external: true },
-            { name: "Contact", href: "/contact" },
-          ].map((item, index) => (
-            <motion.div
-              key={item.name}
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 + 0.3 }}
+          {/* Work Link */}
+          <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
+            <Link
+              href="/"
+              className="text-white text-sm font-medium hover:text-orange-400 transition-colors relative group"
             >
-              <Link
-                href={item.href}
-                target={item.external ? "_blank" : undefined}
-                rel={item.external ? "noopener noreferrer" : undefined}
-                className="text-white text-sm font-medium hover:text-orange-400 transition-colors relative group"
-              >
-                {item.name}
-                <motion.div
-                  className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"
-                  whileHover={{ width: "100%" }}
-                />
-              </Link>
-            </motion.div>
-          ))}
+              Work
+              <motion.div
+                className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"
+                whileHover={{ width: "100%" }}
+              />
+            </Link>
+          </motion.div>
 
-          {/* CTA Button */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.6 }}
-          >
+          {/* Projects */}
+          <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>
+            <button
+              onClick={handleProjectsClick}
+              className="text-white text-sm font-medium hover:text-orange-400 transition-colors relative group"
+            >
+              Projects
+              <motion.div
+                className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"
+                whileHover={{ width: "100%" }}
+              />
+            </button>
+          </motion.div>
+
+          {/* About */}
+          <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.45 }}>
+            <Link
+              href="/about"
+              className="text-white text-sm font-medium hover:text-orange-400 transition-colors relative group"
+            >
+              About
+              <motion.div
+                className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"
+                whileHover={{ width: "100%" }}
+              />
+            </Link>
+          </motion.div>
+
+          {/* Contact */}
+          <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}>
             <Link
               href="/contact"
+              className="text-white text-sm font-medium hover:text-orange-400 transition-colors relative group"
+            >
+              Contact
+              <motion.div
+                className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"
+                whileHover={{ width: "100%" }}
+              />
+            </Link>
+          </motion.div>
+
+          {/* Resume Button */}
+          <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.6 }}>
+            <Link
+              href="https://drive.google.com/file/d/1ANv6LGsSfcdOHM3oyhhJGHP_daJN8XPB/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-white text-black px-6 py-2 rounded-full text-sm font-medium hover:bg-orange-100 transition-all duration-300 relative overflow-hidden group"
             >
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300"
                 whileHover={{ scale: 1.1 }}
               />
-              <span className="relative z-10">Let’s Connect</span>
+              <span className="relative z-10">Resume</span>
             </Link>
           </motion.div>
         </motion.nav>

@@ -9,6 +9,7 @@ import { ParticleBackground } from "@/components/particle-background"
 import { LoadingScreen } from "@/components/loading-screen"
 import { ScrollProgress } from "@/components/scroll-progress"
 import { Footer } from "@/components/footer"
+import {Projects} from "@/components/projects"
 import { useEffect, useState } from "react"
 
 export default function Home() {
@@ -27,11 +28,12 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 relative overflow-hidden">
+    <div className="min-h-screen bg-gray-900 relative overflow-x-hidden">
       <ParticleBackground />
       <ScrollProgress />
       <Header />
       <HeroSection />
+      <Projects />
       <FeaturesSection />
       <BrandsSection />
       <DataAssetSection />
