@@ -369,7 +369,7 @@ export function HeroSection() {
                       transition={{ delay: 2.2 }}
                     >
                       <div className="text-sm font-medium">Latest Update</div>
-                      <div className="text-xs text-gray-500">Deployed app to Vercel with CI/CD</div>
+                      <div className="text-xs text-gray-500">Deployed app to Firebase</div>
                       <div className="text-green-600 font-semibold mt-1">#ProductionReady</div>
                     </motion.div>
                   </div>
